@@ -1,45 +1,32 @@
-import React, {useState} from 'react';
+import React from 'react';
+import NavLink from "./NavLink";
 
 const navLinks = [
     {
-        title:"Book Search",
+        title:"bookSearch",
+        path: "#bookSearch",
+    },
+    {
+        title:"Lists",
         path: "#bookSearch",
     }
 ]
 
 const NavBar = () => {
-    const [navbarOpen, setNavbarOpen] = useState(false);
-
     return (
-        <nav className="NavBar">
+        <nav className="navBar">
             <a className="title" href={'/'}>
-                <h1>my<b>reads</b></h1>
+                <h1><span className="my">my</span><b>reads</b></h1>
             </a>
             <div className="menu" id="navbar">
                 <ul>
                     {navLinks.map((link, index) => (
                         <li key={index}>
-                           <a href = {link.path}>
-                               {link.title}
-                           </a>
+                           <NavLink href={link.path} title={link.title}/>
                         </li>
                     ))}
                 </ul>
             </div>
-            {navbarOpen ?
-                <ul className="menu-overlay">
-                    {navLinks.map((link, index) => (
-                        <li key={index}>
-                            <a href = {link.path}>
-                                {link.title}
-                            </a>
-                        </li>
-                        ))
-                    }
-                </ul>
-                : null
-            }
-
         </nav>
     )
 }
