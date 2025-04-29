@@ -1,4 +1,4 @@
-import react, {useState} from "react"
+import {useState} from "react"
 import BookModal from "./BookModal";
 
 const BookCard = ({ book }) => {
@@ -26,6 +26,8 @@ const BookCard = ({ book }) => {
                                 <BookModal show={show} bookItem={bookItem} onClose={()=>setShow(false)}/>
                             </>
                         )
+                    } else{
+                        return null;
                     }
 
                 })

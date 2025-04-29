@@ -1,26 +1,72 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
 
-.App {
-  /*text-align: center;*/
-  /*background-color: #e9e5cd;*/
+.App{
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-.NavBar h1{
+.App .container {
+  padding-left: 3rem;
+  padding-right: 3rem;
+  margin-top: 6rem;
+
+}
+
+.NavBar {
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  /*position: fixed;*/
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /*padding: 20px;*/
+  border: 1px solid #33353F;
+  background-color: #e9e5cd;
+}
+
+.NavBar .title{
   color: #553b08;
   font-weight: 500;
   font-family: "Merriweather", serif;
-  font-size: 40px;
+  font-size: 20px;
 
+  padding-left: 1rem;
+  padding-right: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.header{
+.NavBar a{
+  text-decoration: none;
+  color: inherit;
+}
+
+.NavBar .menu {
+  display: flex;
+}
+
+.NavBar .menu ul {
+  padding: 0.5rem 1rem 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+}
+
+.NavBar .menu-overlay{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  flex-direction: column;
+}
+
+.book-search-header{
   width: 100%;
   height: 100%;
   align-items: center;
   text-align: center;
 }
 
-.header h2{
+.book-search-header h2{
   /*font-size: 3rem;*/
   margin-top: 20px;
   margin-bottom: 15px;
@@ -35,6 +81,161 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+}
+
+.search-book input{
+  outline: 0;
+  border: 0;
+  width: 350px;
+  height: 35px;
+  padding: 0 0.5rem;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.search-book button{
+  outline: none;
+  border: none;
+  height: 35px;
+  padding: 0 0.5rem;
+}
+
+.container{
+  width: 65%;
+  margin: 25px auto 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+  grid-gap:20px;
+  box-sizing: border-box;
+}
+
+.card{
+  border-radius: 1rem;
+  padding: 0.5rem;
+  margin-bottom: 10px;
+  box-shadow: 0 5px 5px rgba(212,185,150,.5);
+  transition: .5s;
+  text-align: center;
+  position: relative;
+}
+
+.card:hover{
+  transform: scale(0.9);
+  background-color: rgba(255,255,255,0.8);
+}
+
+.card img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.card .bottom{
+  display: flex;
+  flex-direction: column;
+}
+
+.card .bottom .title{
+  font-size: 16px;
+  margin-bottom: 32px;
+}
+
+.card .bottom .author{
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  font-size: 13px;
+  /*font-weight: bold;*/
+  padding: 0.2rem;
+}
+
+.overlay {
+  min-height: 100vh;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay-inner{
+  background: #f1f1f1;
+  width: 700px;
+  height: 550px;
+  padding: 1.5rem;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-size: 1.3rem;
+}
+.overlay-inner .close{
+  position: absolute;
+  top:1rem;
+  right: 1rem;
+  outline: none;
+  border: none;
+  font-size: 17px;
+  background-color: transparent;
+}
+.overlay-inner .inner-box{
+  margin-top: 30px;
+  display: flex;
+  /*justify-content: center;*/
+}
+.overlay-inner .inner-box img{
+  margin-right: 20px;
+  width: 150px;
+  height: 200px;
+  border-radius: 10px;
+}
+.overlay-inner .inner-box h1{
+  font-family: Copernicus, Libre Baskerville, Georgia, serif;
+  display: block;
+  font-weight: 600;
+}
+
+.overlay-inner .inner-box h3{
+  margin-top: 10px;
+  font-family: Copernicus, Libre Baskerville, Georgia, serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  /*color: green;*/
+}
+.overlay-inner .inner-box p{
+  /*color: blue;*/
+}
+.overlay-inner .inner-box button{
+  outline: none;
+  border: none;
+  width: 100px;
+  border-radius: 5px;
+  padding: 0.3rem 0.5rem;
+}
+.overlay-inner .description{
+  margin-top: 2rem;
+  text-align: justify;
+  font-size: 15px;
+  word-break: break-word;
+  font-family: Proxima Nova, Montserrat, Arial, sans-serif;
+  max-height: 222px;
+  overflow-y: auto;
+
+  padding-top: 60px;
+}
+
+.search-book{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 
 .search-book input{

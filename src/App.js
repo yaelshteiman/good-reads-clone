@@ -7,7 +7,10 @@ function App() {
   return (
     <div className="App">
         <NavBar />
-        <BookSearch/>
+        <div className="app-container">
+            <BookSearch/>
+        </div>
+
     </div>
   );
 }

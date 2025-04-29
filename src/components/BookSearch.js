@@ -20,8 +20,8 @@ const BookSearch = () => {
 
     return (
 
-        <div>
-            <div className="header">
+        <div id="bookSearch">
+            <div className="book-search-header">
                 <h2>Find Your Book</h2>
                 <div className="search-book">
                     <input
