@@ -1,7 +1,7 @@
 import {useState} from "react"
 import BookModal from "./BookModal";
 
-const BookCard = ({ book }) => {
+const BookCard = ({ book, readingList, setReadingList }) => {
     const [show, setShow] = useState(false);
     const [bookItem, setBookItem] = useState(null);
     console.log(book);
@@ -16,14 +16,18 @@ const BookCard = ({ book }) => {
                     {
                         return (
                             <>
-                                <div className="card" onClick={()=>{setShow(true);setBookItem(item)}}>
+                                <div className="card" onClick={()=>{
+                                    setShow(true);
+                                    setBookItem(item);
+                                    }}
+                                >
                                     <img src={thumbnail} alt="" />
                                     <div className="bottom">
                                         <h3 className="title">{item.volumeInfo.title}</h3>
                                         <h3 className="author">{author}</h3>
                                     </div>
                                 </div>
-                                <BookModal show={show} bookItem={bookItem} onClose={()=>setShow(false)}/>
+                                <BookModal show={show} bookItem={bookItem} onClose={()=>setShow(false)} readingList={readingList} setReadingList={setReadingList} />
                             </>
                         )
                     } else{

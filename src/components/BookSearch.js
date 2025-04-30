@@ -3,7 +3,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import axios from "axios";
 import BookCard from "./BookCard";
 
-const BookSearch = () => {
+const BookSearch = ({readingList, setReadingList}) => {
 
     const API_KEY = process.env.REACT_APP_GOOGLE_BOOKS_API_KEY;
 
@@ -36,7 +36,7 @@ const BookSearch = () => {
                 </div>
             </div>
             <div className="container">
-                <BookCard book={bookData} />
+                <BookCard book={bookData} readingList={readingList} setReadingList={setReadingList} />
             </div>
         </div>
     )
