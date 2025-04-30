@@ -3,12 +3,12 @@ import NavLink from "./NavLink";
 
 const navLinks = [
     {
-        title:"bookSearch",
+        title:"Search",
         path: "#bookSearch",
     },
     {
-        title:"Lists",
-        path: "#bookSearch",
+        title:"Bookshelves",
+        path: "#bookshelves",
     }
 ]
 
