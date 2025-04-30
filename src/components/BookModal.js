@@ -10,16 +10,17 @@ const BookModal = ({show, bookItem, onClose, readingList, setReadingList}) => {
     const [dropdownVisible, setDropdownVisible] = useState(false);
 
     const getCurrentListForBook = (book) => {
-        if (readingList["Currently Reading"].includes(book)){
+        if (readingList["Currently Reading"].some(b => b.id === book.id)) {
             return "Currently Reading";
-        } else if (readingList["Read"].includes(book)) {
+        } else if (readingList["Read"].some(b => b.id === book.id)) {
             return "Read";
-        } else if (readingList["Want to Read"].includes(book)){
+        } else if (readingList["Want to Read"].some(b => b.id === book.id)) {
             return "Want to Read";
-        } else{
+        }
+        else {
             return null;
         }
-    }
+    };
 
     if (!show){
         return null;
@@ -49,20 +50,18 @@ const BookModal = ({show, bookItem, onClose, readingList, setReadingList}) => {
                                 setShowBookShelve(true)
                                 setDropdownVisible(true)
                             }}>
-                                {/*Add to bookshelf*/}
                                 {book_status ? book_status : "Add to bookshelf"}
                             </button>
                         </div>
                     </div>
                     {showBookShelve && (
                         <BookShelfModal
+                            readingList={readingList}
+                            dropdownVisible = {dropdownVisible}
                             getCurrentListForBook={getCurrentListForBook}
-                            dropdownVisible={dropdownVisible}
-                            setDropdownVisible={setDropdownVisible}
-                            showBookShelve={showBookShelve}
+                            setDropdownVisible={setDropdownVisible  }
                             onClose={() => setShowBookShelve(false)}
                             bookItem={bookItem}
-                            readingList={readingList}
                             setReadingList={setReadingList}
                         />
                     )}

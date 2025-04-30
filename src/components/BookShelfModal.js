@@ -1,10 +1,13 @@
+import {useState, useEffect} from "react";
 
-// const shelves = ['Want to read', 'Currently reading', 'Read'];
 
+const BookShelfModal = ({readingList, dropdownVisible, getCurrentListForBook, setDropdownVisible, onClose, bookItem, setReadingList}) => {
+    const [selectedShelf, setSelectedShelf] = useState(getCurrentListForBook(bookItem));
 
-// import {useState} from "react";
+    useEffect(() => {
+        setSelectedShelf(getCurrentListForBook(bookItem));
+    }, [bookItem, readingList]);
 
-const BookShelfModal = ({getCurrentListForBook, dropdownVisible, setDropdownVisible, showBookShelve, onClose, bookItem, readingList, setReadingList}) => {
 
     const handleSelectList = (book, selectedList) => {
         setReadingList((prev) => {
@@ -18,32 +21,30 @@ const BookShelfModal = ({getCurrentListForBook, dropdownVisible, setDropdownVisi
 
             return updated;
         });
+    }
+
+    const handleSave = () => {
+        handleSelectList(bookItem, selectedShelf);
         setDropdownVisible(false);
         onClose();
     }
 
-
+    if (!dropdownVisible){
+        return;
+    }
 
     return (
         <div className="bookshelf-overlay">
             <div className="bookshelf-modal">
-                {/*<button onClick={() => setDropdownVisible(true)}>*/}
-                {/*    Add to List*/}
-                {/*</button>*/}
-                {/*<h3>Choose a shelf for this book</h3>*/}
-                {dropdownVisible && (
-                    <select
-                        onChange={(e) => {
-                            handleSelectList(bookItem, e.target.value);
-                        }}
-                        value={getCurrentListForBook(bookItem)}
-                    >
-                        <option value="Read">Read</option>
-                        <option value="Currently Reading">Currently Reading</option>
-                        <option value="Want to Read">Want to Read</option>
-
-                    </select>
-                )}
+                <select
+                    value={selectedShelf}
+                    onChange={(e) => setSelectedShelf(e.target.value)}
+                >
+                    <option value="Currently Reading">Currently Reading</option>
+                    <option value="Read">Read</option>
+                    <option value="Want to Read">Want to Read</option>
+                </select>
+                <button onClick={handleSave}>Save</button>
             </div>
         </div>
     )
