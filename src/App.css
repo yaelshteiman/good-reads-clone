@@ -190,6 +190,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 550px;
+  overflow-y: auto;
 }
 
 .overlay-inner{
@@ -210,11 +212,11 @@
   border: none;
   font-size: 17px;
   background-color: transparent;
+  cursor: pointer;
 }
 .overlay-inner .inner-box{
   margin-top: 30px;
   display: flex;
-  /*justify-content: center;*/
 }
 .overlay-inner .inner-box img{
   margin-right: 20px;
@@ -233,11 +235,6 @@
   font-family: Copernicus, Libre Baskerville, Georgia, serif;
   font-size: 1.8rem;
   font-weight: 400;
-  /*color: green;*/
-}
-
-.overlay-inner .inner-box p{
-  /*color: blue;*/
 }
 
 .overlay-inner .inner-box button{
@@ -255,6 +252,12 @@
   word-break: break-word;
   font-family: Proxima Nova, Montserrat, Arial, sans-serif;
   max-height: 222px;
-  overflow-y: auto;
-  padding-top: 60px;
+  overflow-y: scroll;
+
 }
+
+.overlay-inner .inner-box .info button{
+  cursor: pointer;
+}
+
+
