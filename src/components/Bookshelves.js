@@ -1,7 +1,7 @@
 
 const Bookshelves = ({readingList}) => {
     return (
-        <div className="bookshelves">
+        <div id="bookshelves" className="bookshelves">
             {Object.entries(readingList).map(([shelfName, books]) => (
                 <div key={shelfName} className="shelf-selction">
                     <h2>{shelfName}</h2>
