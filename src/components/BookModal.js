@@ -7,7 +7,7 @@ import {useState} from "react";
 const BookModal = ({show, bookItem, onClose, readingList, setReadingList}) => {
 
     const [showBookShelve, setShowBookShelve] = useState(false);
-    const [dropdownVisible, setDropdownVisible] = useState(false);
+    const [isShelfSelectorOpen, setIsShelfSelectorOpen] = useState(false);
 
     const getCurrentListForBook = (book) => {
         if (readingList["Currently Reading"].some(b => b.id === book.id)) {
@@ -48,7 +48,7 @@ const BookModal = ({show, bookItem, onClose, readingList, setReadingList}) => {
                             </a>
                             <button onClick={() => {
                                 setShowBookShelve(true)
-                                setDropdownVisible(true)
+                                setIsShelfSelectorOpen(true)
                             }}>
                                 {book_status ? book_status : "Add to bookshelf"}
                             </button>
@@ -57,9 +57,9 @@ const BookModal = ({show, bookItem, onClose, readingList, setReadingList}) => {
                     {showBookShelve && (
                         <BookShelfModal
                             readingList={readingList}
-                            dropdownVisible = {dropdownVisible}
+                            isShelfSelectorOpen = {isShelfSelectorOpen}
                             getCurrentListForBook={getCurrentListForBook}
-                            setDropdownVisible={setDropdownVisible  }
+                            setIsShelfSelectorOpen={setIsShelfSelectorOpen  }
                             onClose={() => setShowBookShelve(false)}
                             bookItem={bookItem}
                             setReadingList={setReadingList}
