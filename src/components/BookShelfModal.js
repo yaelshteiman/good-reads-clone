@@ -36,21 +36,24 @@ const BookShelfModal = ({readingList, dropdownVisible, getCurrentListForBook, se
     return (
         <div className="bookshelf-overlay">
             <div className="bookshelf-modal">
+                <h3>Choose a shelf for this book</h3>
                 <ul>
                     {["Currently Reading", "Read", "Want to Read"].map((shelf) => (
                         <li
                             className={`shelf-option ${selectedShelf === shelf ? "selected" : ""}`}
                             key={shelf}
-                            onClick={() => setSelectedShelf(shelf)}
-                            style={{
+                            onClick={() => {
+                                setSelectedShelf(shelf);
 
                             }}
                         >
                             {shelf}
                         </li>
                     ))}
+
                 </ul>
                 <button onClick={handleSave}>Save</button>
+
             </div>
         </div>
     )
