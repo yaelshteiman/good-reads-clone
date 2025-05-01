@@ -260,4 +260,16 @@
   cursor: pointer;
 }
 
+.shelf-option {
+  cursor: pointer;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  width: fit-content;
+  background-color: white; /* default */
+}
 
+.shelf-option.selected {
+  background-color: #d3d3d3;
+}
