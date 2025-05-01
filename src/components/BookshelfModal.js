@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 
 
-const BookShelfModal = ({readingList, isShelfSelectorOpen, getCurrentListForBook, setIsShelfSelectorOpen, onClose, bookItem, setReadingList}) => {
+const BookshelfModal = ({readingList, isShelfSelectorOpen, getCurrentListForBook, setIsShelfSelectorOpen, onClose, bookItem, setReadingList}) => {
     const [selectedShelf, setSelectedShelf] = useState(getCurrentListForBook(bookItem));
 
     useEffect(() => {
@@ -12,11 +12,9 @@ const BookShelfModal = ({readingList, isShelfSelectorOpen, getCurrentListForBook
     const handleSelectList = (book, selectedList) => {
         setReadingList((prev) => {
             const updated = { ...prev };
-            // Remove book from all shelves
             for (let shelf in updated) {
                 updated[shelf] = updated[shelf].filter((b) => b.id !== book.id);
             }
-            // Add book to selected shelf
             updated[selectedList] = [...updated[selectedList], book];
 
             return updated;
@@ -64,4 +62,4 @@ const BookShelfModal = ({readingList, isShelfSelectorOpen, getCurrentListForBook
     )
 }
 
-export default BookShelfModal;
+export default BookshelfModal;

@@ -1,6 +1,6 @@
 // import react from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import BookShelfModal from "./BookShelfModal";
+import BookshelfModal from "./BookshelfModal";
 import {useState} from "react";
 
 
@@ -55,7 +55,7 @@ const BookModal = ({show, bookItem, onClose, readingList, setReadingList}) => {
                         </div>
                     </div>
                     {showBookShelve && (
-                        <BookShelfModal
+                        <BookshelfModal
                             readingList={readingList}
                             isShelfSelectorOpen = {isShelfSelectorOpen}
                             getCurrentListForBook={getCurrentListForBook}
