@@ -15,7 +15,10 @@ const BookshelfModal = ({readingList, isShelfSelectorOpen, getCurrentListForBook
             for (let shelf in updated) {
                 updated[shelf] = updated[shelf].filter((b) => b.id !== book.id);
             }
-            updated[selectedList] = [...updated[selectedList], book];
+            if(selectedList){
+                updated[selectedList] = [...updated[selectedList], book];
+
+            }
 
             return updated;
         });
@@ -29,6 +32,10 @@ const BookshelfModal = ({readingList, isShelfSelectorOpen, getCurrentListForBook
 
     if (!isShelfSelectorOpen){
         return;
+    }
+
+    const handleRemove = () => {
+        handleSelectList(bookItem, null);
     }
 
     return (
@@ -52,11 +59,12 @@ const BookshelfModal = ({readingList, isShelfSelectorOpen, getCurrentListForBook
                         </li>
                     ))}
                     <button className="save" onClick={handleSave}>Save</button>
-
+                    <button className="remove" onClick={handleRemove}>
+                        <i className="fa-regular fa-trash-can"></i>
+                        Remove from shelf
+                    </button>
                 </ul>
-                {/*<button className="remove" onClick={}>*/}
 
-                {/*</button>*/}
             </div>
         </div>
     )
