@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 
 
-const BookShelfModal = ({readingList, dropdownVisible, getCurrentListForBook, setDropdownVisible, onClose, bookItem, setReadingList}) => {
+const BookShelfModal = ({readingList, isShelfSelectorOpen, getCurrentListForBook, setIsShelfSelectorOpen, onClose, bookItem, setReadingList}) => {
     const [selectedShelf, setSelectedShelf] = useState(getCurrentListForBook(bookItem));
 
     useEffect(() => {
@@ -25,17 +25,20 @@ const BookShelfModal = ({readingList, dropdownVisible, getCurrentListForBook, se
 
     const handleSave = () => {
         handleSelectList(bookItem, selectedShelf);
-        setDropdownVisible(false);
+        setIsShelfSelectorOpen(false);
         onClose();
     }
 
-    if (!dropdownVisible){
+    if (!isShelfSelectorOpen){
         return;
     }
 
     return (
         <div className="bookshelf-overlay">
             <div className="bookshelf-modal">
+                <button className="close" onClick={onClose}>
+                    <i className="fa-solid fa-xmark"></i>
+                </button>
                 <h3>Choose a shelf for this book</h3>
                 <ul>
                     {["Currently Reading", "Read", "Want to Read"].map((shelf) => (
@@ -50,10 +53,12 @@ const BookShelfModal = ({readingList, dropdownVisible, getCurrentListForBook, se
                             {shelf}
                         </li>
                     ))}
+                    <button className="save" onClick={handleSave}>Save</button>
 
                 </ul>
-                <button onClick={handleSave}>Save</button>
+                {/*<button className="remove" onClick={}>*/}
 
+                {/*</button>*/}
             </div>
         </div>
     )
