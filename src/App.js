@@ -3,13 +3,12 @@ import NavBar from "./components/NavBar";
 import BookSearch from "./components/BookSearch";
 import {useState, useEffect} from "react";
 import Bookshelves from "./components/Bookshelves";
+import ShelfPage from "./components/ShelfPage";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+
 
 function App() {
-    // const [readingList, setReadingList] = useState({
-    //     "Currently Reading": [],
-    //     "Want to Read": [],
-    //     "Read": []
-    // });
+
     const [readingList, setReadingList] = useState(() => {
         const stored = localStorage.getItem("readingList");
         return stored ? JSON.parse(stored) : {
@@ -24,14 +23,28 @@ function App() {
     }, [readingList]);
 
     return (
-        <div className="App">
-            <NavBar/>
-            <div className="app-container">
-                <BookSearch readingList={readingList} setReadingList={setReadingList} />
-                <Bookshelves readingList={readingList}/>
-            </div>
+        <Router>
+            <div className="App">
+                <NavBar/>
+                <div className="app-container">
+                    <Routes>
+                        <Route path="/" element={
+                           <>
+                               <BookSearch readingList={readingList} setReadingList={setReadingList} />
+                               <Bookshelves readingList={readingList}/>
+                           </>
+                        }/>
+                        <Route
+                            path="/list/:shelfName"
+                            element={<ShelfPage readingList={readingList} />}
+                        />
+                    </Routes>
 
-        </div>
+                </div>
+
+            </div>
+        </Router>
+
     );
 }
 
