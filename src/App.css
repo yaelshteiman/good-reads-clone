@@ -2,14 +2,16 @@
 
 .App{
   flex-direction: column;
-  min-height: 100vh;
+  /*min-height: 100vh;*/
+
 }
 
 .App .container {
   padding-left: 3rem;
   padding-right: 3rem;
   margin-top: 6rem;
-
+  display: flex;
+  justify-content: center;
 }
 
 .navBar {
@@ -88,10 +90,12 @@
   height: 100%;
   align-items: center;
   text-align: center;
+  flex-direction: column;
+  /*gap: 1rem;*/
+  /*padding: 1rem;*/
 }
 
 .book-search-header h2{
-  /*font-size: 3rem;*/
   margin-top: 20px;
   margin-bottom: 15px;
 }
@@ -375,4 +379,43 @@
 
 .bookshelf-modal .remove:hover {
   text-decoration: underline;
+}
+
+.bookshelves {
+  display: flex;
+  justify-content: center;
+  font-family: Lato, "Helvetica Neue", Helvetica, sans-serif;
+
+}
+
+.bookshelves h3 {
+  color: #333333;
+  font-weight: bold;
+  line-height: 1.15;
+  margin: 12px 0;
+  text-transform: uppercase;
+}
+
+.shelf-container {
+  /*display: block;*/
+}
+
+.shelf-selection{
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+
+.shelf-selection .shelf-count{
+  padding-right: 12px;
+  text-align: right;
+  float: left;
+}
+
+
+.shelf-selection .shelf-name {
+  clear: left;
+  width: 300px;
 }
