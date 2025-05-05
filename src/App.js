@@ -12,8 +12,8 @@ function App() {
     const [readingList, setReadingList] = useState(() => {
         const stored = localStorage.getItem("readingList");
         return stored ? JSON.parse(stored) : {
-            "Currently Reading": [],
             "Want to Read": [],
+            "Currently Reading": [],
             "Read": [],
         };
     });

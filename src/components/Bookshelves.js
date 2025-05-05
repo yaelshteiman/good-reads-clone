@@ -9,9 +9,9 @@ const Bookshelves = ({readingList}) => {
 
                 {Object.entries(readingList).map(([shelfName, books]) => (
                     <div key={shelfName} className="shelf-selection">
-                        <div className="shelf-count">
+                        <Link to={`/list/${encodeURIComponent(shelfName)}`} className="shelf-count">
                             {books.length}
-                        </div>
+                        </Link>
                         <Link to={`/list/${encodeURIComponent(shelfName)}`} className="shelf-name">
                             {shelfName}
                         </Link>

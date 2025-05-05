@@ -397,7 +397,7 @@
 }
 
 .shelf-container {
-  /*display: block;*/
+  line-height: 150%;
 }
 
 .shelf-selection{
@@ -405,19 +405,23 @@
   gap: 8px;
   align-items: center;
   margin-bottom: 4px;
+  color: #00635D;
 }
-
 
 .shelf-selection .shelf-count{
   padding-right: 12px;
   text-align: right;
   float: left;
+  clear: left;
+  text-decoration: none;
+  color: #00635D;
 }
 
 
 .shelf-selection .shelf-name {
   clear: left;
-  width: 300px;
+  text-decoration: none;
+  color: #00635D;
 }
 
 #shelfPage{
