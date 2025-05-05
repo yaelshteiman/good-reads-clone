@@ -6,7 +6,7 @@ const BookshelfModal = ({readingList, isShelfSelectorOpen, getCurrentListForBook
 
     useEffect(() => {
         setSelectedShelf(getCurrentListForBook(bookItem));
-    }, [bookItem, readingList]);
+    }, [bookItem, readingList, getCurrentListForBook]);
 
 
     const handleSelectList = (book, selectedList) => {
