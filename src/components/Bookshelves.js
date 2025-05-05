@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+
 
 const Bookshelves = ({readingList}) => {
     return (
@@ -10,24 +12,9 @@ const Bookshelves = ({readingList}) => {
                         <div className="shelf-count">
                             {books.length}
                         </div>
-                        <div className="shelf-name">
+                        <Link to={`/list/${encodeURIComponent(shelfName)}`} className="shelf-name">
                             {shelfName}
-                        </div>
-                        {/*<div>*/}
-                        {/*    {books.length} {shelfName}*/}
-                        {/*</div>*/}
-                        {/*{books.length === 0 ? (*/}
-                        {/*    <p>No books in this shelf.</p>*/}
-                        {/*) : (*/}
-                        {/*    <ul className="book-list">*/}
-                        {/*        {books.map((book) => (*/}
-                        {/*            <li key={book.id} className="book-item">*/}
-                        {/*                <h4>{book.volumeInfo.title}</h4>*/}
-                        {/*                <h4>{book.volumeInfo.authors?.join(", ")}</h4>*/}
-                        {/*            </li>*/}
-                        {/*        ))}*/}
-                        {/*    </ul>*/}
-                        {/*)}*/}
+                        </Link>
                     </div>
                 ))}
             </div>
