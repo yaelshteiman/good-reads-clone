@@ -1,15 +1,27 @@
 import './App.css';
 import NavBar from "./components/NavBar";
 import BookSearch from "./components/BookSearch";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import Bookshelves from "./components/Bookshelves";
 
 function App() {
-    const [readingList, setReadingList] = useState({
-        "Currently Reading": [],
-        "Want to Read": [],
-        "Read": []
+    // const [readingList, setReadingList] = useState({
+    //     "Currently Reading": [],
+    //     "Want to Read": [],
+    //     "Read": []
+    // });
+    const [readingList, setReadingList] = useState(() => {
+        const stored = localStorage.getItem("readingList");
+        return stored ? JSON.parse(stored) : {
+            "Currently Reading": [],
+            "Want to Read": [],
+            "Read": [],
+        };
     });
+
+    useEffect(() => {
+        localStorage.setItem("readingList", JSON.stringify(readingList));
+    }, [readingList]);
 
     return (
         <div className="App">
