@@ -1,10 +1,11 @@
 import React from 'react'
+import { HashLink } from 'react-router-hash-link';
 
-const NavLink = ({href, title}) => {
+const NavLink = ({to, title}) => {
     return (
-        <a className="navLink" href={href}>
+        <HashLink smooth className="navLink" to={to}>
             {title}
-        </a>
+        </HashLink>
     );
 };
 

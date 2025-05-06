@@ -4,7 +4,7 @@ import BookSearch from "./components/BookSearch";
 import {useState, useEffect} from "react";
 import Bookshelves from "./components/Bookshelves";
 import ShelfPage from "./components/ShelfPage";
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import {HashRouter as Router, Routes, Route} from "react-router-dom";
 
 
 function App() {

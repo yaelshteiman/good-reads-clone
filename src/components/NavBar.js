@@ -3,14 +3,14 @@ import NavLink from "./NavLink";
 
 const navLinks = [
     {
-        title:"Search",
-        path: "#bookSearch",
+        title: "Search",
+        to: "#bookSearch"
     },
     {
-        title:"Bookshelves",
-        path: "#bookshelves",
+        title: "Bookshelves",
+        to: "#bookshelves"
     }
-]
+];
 
 const NavBar = () => {
     return (
@@ -22,7 +22,7 @@ const NavBar = () => {
                 <ul>
                     {navLinks.map((link, index) => (
                         <li key={index}>
-                           <NavLink href={link.path} title={link.title}/>
+                           <NavLink to={link.to} title={link.title}/>
                         </li>
                     ))}
                 </ul>
