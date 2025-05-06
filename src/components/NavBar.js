@@ -4,11 +4,11 @@ import NavLink from "./NavLink";
 const navLinks = [
     {
         title: "Search",
-        to: "#bookSearch"
+        to: "/#bookSearch"
     },
     {
         title: "Bookshelves",
-        to: "#bookshelves"
+        to: "/#bookshelves"
     }
 ];
 
