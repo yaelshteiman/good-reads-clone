@@ -1,28 +1,12 @@
 import {useState, useEffect} from "react";
 
 
-const BookshelfModal = ({readingList, isShelfSelectorOpen, getCurrentListForBook, setIsShelfSelectorOpen, onClose, bookItem, setReadingList}) => {
+const BookshelfModal = ({readingList, isShelfSelectorOpen, getCurrentListForBook, setIsShelfSelectorOpen, onClose, bookItem, handleSelectList}) => {
     const [selectedShelf, setSelectedShelf] = useState(getCurrentListForBook(bookItem));
 
     useEffect(() => {
         setSelectedShelf(getCurrentListForBook(bookItem));
     }, [bookItem, readingList, getCurrentListForBook]);
-
-
-    const handleSelectList = (book, selectedList) => {
-        setReadingList((prev) => {
-            const updated = { ...prev };
-            for (let shelf in updated) {
-                updated[shelf] = updated[shelf].filter((b) => b.id !== book.id);
-            }
-            if(selectedList){
-                updated[selectedList] = [...updated[selectedList], book];
-
-            }
-
-            return updated;
-        });
-    }
 
     const handleSave = () => {
         handleSelectList(bookItem, selectedShelf);

@@ -4,7 +4,7 @@ import BookshelfModal from "./BookshelfModal";
 import {useState} from "react";
 
 
-const BookModal = ({show, bookItem, onClose, readingList, setReadingList}) => {
+const BookModal = ({show, bookItem, onClose, readingList, setReadingList, handleSelectList}) => {
 
     const [showBookShelve, setShowBookShelve] = useState(false);
     const [isShelfSelectorOpen, setIsShelfSelectorOpen] = useState(false);
@@ -62,7 +62,7 @@ const BookModal = ({show, bookItem, onClose, readingList, setReadingList}) => {
                             setIsShelfSelectorOpen={setIsShelfSelectorOpen  }
                             onClose={() => setShowBookShelve(false)}
                             bookItem={bookItem}
-                            setReadingList={setReadingList}
+                            handleSelectList={handleSelectList}
                         />
                     )}
                     <p className="description">{bookItem.volumeInfo.description}</p>
