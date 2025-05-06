@@ -45,7 +45,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={
                            <>
-                               <BookSearch readingList={readingList} setReadingList={setReadingList} handleSelectList={handleSelectList}/>
+                               <BookSearch readingList={readingList} handleSelectList={handleSelectList}/>
                                <Bookshelves readingList={readingList}/>
                            </>
                         }/>

@@ -1,7 +1,7 @@
 import {useState} from "react"
 import BookModal from "./BookModal";
 
-const BookCard = ({ book, readingList, setReadingList, handleSelectList }) => {
+const BookCard = ({ book, readingList, handleSelectList }) => {
     const [show, setShow] = useState(false);
     const [bookItem, setBookItem] = useState(null);
     console.log(book);
@@ -27,7 +27,7 @@ const BookCard = ({ book, readingList, setReadingList, handleSelectList }) => {
                                         <h3 className="author">{author}</h3>
                                     </div>
                                 </div>
-                                <BookModal show={show} bookItem={bookItem} onClose={()=>setShow(false)} readingList={readingList} setReadingList={setReadingList} handleSelectList={handleSelectList}/>
+                                <BookModal show={show} bookItem={bookItem} onClose={()=>setShow(false)} readingList={readingList} handleSelectList={handleSelectList}/>
                             </>
                         )
                     } else{
