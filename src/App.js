@@ -18,6 +18,21 @@ function App() {
         };
     });
 
+    const handleSelectList = (book, selectedList) => {
+        setReadingList((prev) => {
+            const updated = { ...prev };
+            for (let shelf in updated) {
+                updated[shelf] = updated[shelf].filter((b) => b.id !== book.id);
+            }
+            if(selectedList){
+                updated[selectedList] = [...updated[selectedList], book];
+
+            }
+
+            return updated;
+        });
+    }
+
     useEffect(() => {
         localStorage.setItem("readingList", JSON.stringify(readingList));
     }, [readingList]);
@@ -30,13 +45,13 @@ function App() {
                     <Routes>
                         <Route path="/" element={
                            <>
-                               <BookSearch readingList={readingList} setReadingList={setReadingList} />
+                               <BookSearch readingList={readingList} setReadingList={setReadingList} handleSelectList={handleSelectList}/>
                                <Bookshelves readingList={readingList}/>
                            </>
                         }/>
                         <Route
                             path="/list/:shelfName"
-                            element={<ShelfPage readingList={readingList} />}
+                            element={<ShelfPage readingList={readingList} handleSelectList={handleSelectList}/>}
                         />
                     </Routes>
 
