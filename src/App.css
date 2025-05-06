@@ -427,4 +427,64 @@
 #shelfPage{
   padding: 1rem 3rem;
   margin-top: 6rem;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 18px;
+
+}
+
+
+.shelf-page .books-table{
+  text-indent: initial;
+  border-spacing: 2px;
+  /*display: table;*/
+  border-collapse: separate;
+  box-sizing: border-box;
+  unicode-bidi: isolate;
+  border-color: gray;
+  display: table-header-group;
+  vertical-align: middle;
+  text-align: left;
+
+}
+
+.books-table th.field {
+  vertical-align: bottom;
+
+}
+
+.books-table .books-body{
+  vertical-align: top;
+  padding: 12px 5px 5px 0;
+  color: #181818;
+}
+
+.field-cover{
+  width: 50px;
+  margin: 0;
+  float: none;
+}
+
+.field-title{
+  width: 25%;
+}
+
+.field-author{
+  width: 25%;
+}
+
+.field-action{
+  position: relative;
+  padding-right: 10px;
+}
+
+.field-action button{
+  color: #999999;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.book-a-like{
+  border: 2px solid transparent;
 }
